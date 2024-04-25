@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceName": {
+      "value": "AdastraOpenAIChatBotv2"
+    },
+    "existingAppServicePlanName": {
+      "value": ""
+    },
+    "existingAppServicePlanLocation": {
+      "value": ""
+    },
+    "newAppServicePlanName": {
+      "value": "AdastraOpenAIChatBotUAMSP"
+    },
+    "newAppServicePlanLocation": {
+      "value": "eastus"
+    },
+    "newAppServicePlanSku": {
+      "value": {
+        "name": "S1",
+        "tier": "Standard",
+        "size": "S1",
+        "family": "S",
+        "capacity": 1
+      }
+    },
+    "appType": {
+      "value": "MultiTenant"
+    },
+    "appId": {
+      "value": "2bd8e5f2-3586-404b-ab75-1ee8efd6cc76"
+    },
+    "appSecret": {
+      "value": ""
+    },
+    "UMSIName": {
+      "value": ""
+    },
+    "UMSIResourceGroupName": {
+      "value": ""
+    },
+    "tenantId": {
+      "value": ""
+    }
+  }
+}

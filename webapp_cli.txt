@@ -1,0 +1,4 @@
+az acr build --resource-group OpenAI --registry AdastraOpenAIContainers --image apidemo/manualsearch .
+
+az webapp create --resource-group OpenAI --plan AdastraOpenAILinuxASP --name AdastraManualSearchApp --docker-registry-server-password rKsHnJdAdF2QWRqwSCpVgikgG2SBWruBlWlKIDKfQ6+ACRAiS8jd --docker-registry-server-user AdastraOpenAIContainers --deployment-container-image-name adastraopenaicontainers.azurecr.io/apidemo/manualsearch:latest
+

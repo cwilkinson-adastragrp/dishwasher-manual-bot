@@ -5,6 +5,7 @@
 import os
 import json
 from fastapi import FastAPI
+from pydantic import BaseModel
 from openai import AzureOpenAI
 from dotenv import load_dotenv
 from azure.search.documents import SearchClient
@@ -54,8 +55,9 @@ class SearchDocuments():
         result = self.query_openai_with_docs(query, text[:max_docs])
         return result
 
-
-
+# Define the Input Type
+class Input(BaseModel):
+    input: str
 
 # Define the app
 app = FastAPI(
@@ -71,9 +73,10 @@ async def main():
 
 # Define a POST operation
 @app.post("/submit")
-async def submit(input):
+async def submit(input: Input):
     search_documents = SearchDocuments()
-    query = "What do I do if detergent is left in the cups?"
+    query = input.input
+    # result = query
     result = search_documents.query(query, search_documents)
     return {"message": f"{result}"}
 
@@ -81,7 +84,6 @@ async def submit(input):
 # Use the Docs to set up Azure Search
 # Once Set up, Input Azure Search Credentials in .env File
 ########
-
 
 # search_documents = SearchDocuments()
 # query = "What do I do if detergent is left in the cups?"
